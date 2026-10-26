@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Check project build
         run: npm run build
 
       - name: Setup Java
@@ -39,6 +39,11 @@ jobs:
         uses: android-actions/setup-android@v4
         with:
           packages: 'platform-tools'
+
+      - name: Prepare web assets
+        run: |
+          mkdir -p www
+          cp index.html app.js style.css manifest.json sw.js www/
 
       - name: Add Android platform if missing
         run: |
@@ -61,6 +66,3 @@ jobs:
           name: babuji-dhaba-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
-
-
-    
