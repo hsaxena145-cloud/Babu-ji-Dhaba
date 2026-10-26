@@ -2,11 +2,10 @@
 name: Build Android APK
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -27,22 +26,25 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check project build
+      - name: Build project
         run: npm run build
 
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '     
-        
+          java-version: '21'
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
         with:
           packages: 'platform-tools'
 
-      - name: Add Android platform
-        run: npx cap add android
+      - name: Add Android platform if missing
+        run: |
+          if [ ! -d android ]; then
+            npx cap add android
+          fi
 
       - name: Sync Capacitor
         run: npx cap sync android
@@ -59,5 +61,6 @@ jobs:
           name: babuji-dhaba-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+
 
     
