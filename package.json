@@ -1,0 +1,23 @@
+{
+  "name": "babuji-family-dhaba-amritpur",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Babu Ji Family Dhaba ordering app with PWA and Android wrapper",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node -e \"console.log('Static web app ready in public/')\"",
+    "android:sync": "npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "razorpay": "^2.9.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

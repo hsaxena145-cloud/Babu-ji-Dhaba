@@ -1,0 +1,8 @@
+{
+  "appId": "in.babujidhaba.amritpur",
+  "appName": "Babu Ji Dhaba",
+  "webDir": "public",
+  "server": {
+    "androidScheme": "https"
+  }
+}

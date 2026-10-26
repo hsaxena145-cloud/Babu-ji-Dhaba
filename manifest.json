@@ -1,0 +1,9 @@
+{
+  "name": "Babu Ji Family Dhaba",
+  "short_name": "Babu Ji Dhaba",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8ef",
+  "theme_color": "#7b1113",
+  "icons": []
+}
